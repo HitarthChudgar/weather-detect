@@ -1,7 +1,7 @@
 const cityForm = document.querySelector('form');
 const card = document.querySelector('.card');
 const details = document.querySelector('.details');
-const time = document.querySelector('time img');
+const time = document.querySelector('.time');
 const icon = document.querySelector('.icon img')
 
 //update the ui
@@ -23,6 +23,19 @@ const updateUI = (data) => {
     if(card.classList.contains('d-none')){
         card.classList.remove('d-none');
     }
+
+    //update night/day and icons
+    let timeSrc = null;
+    if(weather.IsDayTime){
+        timeSrc = 'img/day.svg'
+    }else{
+        timeSrc = 'img/night.svg'
+    }
+    time.setAttribute('src', timeSrc);
+
+    let iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
+    icon.setAttribute('src', iconSrc);
+
 }
 
 //get the city
@@ -44,5 +57,5 @@ cityForm.addEventListener('submit', e => {
     cityForm.reset()
 
     //update ui with new city getting input from the form
-    updateCity(city).then(data => updateUI(data)).catch(err => updateUI(data));
+    updateCity(city).then(data => updateUI(data)).catch(err => console.log(err));
 })
