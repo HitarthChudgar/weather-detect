@@ -1,6 +1,8 @@
 const cityForm = document.querySelector('form');
 const card = document.querySelector('.card');
-const details = document.querySelector('.details')
+const details = document.querySelector('.details');
+const time = document.querySelector('time img');
+const icon = document.querySelector('.icon img')
 
 //update the ui
 const updateUI = (data) => {
