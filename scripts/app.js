@@ -4,8 +4,8 @@ const details = document.querySelector('.details')
 
 //update the ui
 const updateUI = (data) => {
-    const cityDet = data.cityDet;
-    const weather = data.weather;
+    //destructuring for cleaner looking code
+    const {cityDet, weather} = data;
 
     //update the details
     details.innerHTML = `
